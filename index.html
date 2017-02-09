@@ -1,0 +1,90 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+<!--jquery-->
+<script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+<!-- Font Awesome --> 
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+<title>Agendamento VIPOV - CAIXA</title>
+
+<style>
+    .hora{
+        border-right: 1px solid #000;
+    }
+</style>
+</head>
+<body>
+    <div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="page-header">
+                    <h1>Agendamento VIPOV </h1>
+                    <h2> Manicure </h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="panel panel-primary">
+                    <div class="panel-heading"> 23/02/2017 </div>
+                    <div class="panel-body">
+                        
+                    </div>
+                </div>
+            </div>
+             <div class="col-md-6">
+                 <div class="panel panel-primary">
+                  <div class="panel-heading"> 24/02/2017 </div>
+                    <div class="panel-body">
+                        
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+<script>
+    $( document ).ready(function() {
+        function horario(h) { 
+            return ('<div class="row"> '+
+                        '  <div class="col-md-2 hora">'+h+'</div> '+
+                        '     <div class="col-md-2"><input type="checkbox" name="'+h+'" ></div>'+
+                        '    <div class="col-md-8 nome"> </div>'+
+                        '</div>'
+                    );
+        }
+        for (i = 8 ; i<=18 ; i++){
+            $('.panel-body').append( horario(i) );
+            
+        }
+        
+        var nome = 'Roberto Sobrinho da Silva';
+        var matricula = 'C092303';
+        
+        $('input').change(function() {
+			input = $(this);
+			// Ligar ou desligar
+			if ($(this).prop('checked')){ 
+			    input.closest(".row").find('.nome').text(nome + ' - ' + matricula);
+			}
+			else{
+			   input.closest(".row").find('.nome').text('');
+			}
+        });
+        
+    });
+</script>
+</body>
+</html>
