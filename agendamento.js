@@ -22,8 +22,6 @@ $( document ).ready(function() {
             $('.panel-body').append( horario(i+':30') );
         }
         
-        var nome = 'Roberto Sobrinho da Silva';
-        var matricula = 'C092303';
         
         // Marcar / Desmarcar 
         $('input').change(function() {
@@ -35,6 +33,12 @@ $( document ).ready(function() {
 			else{
 			   input.closest(".row").find('.nome').text('');
 			}
+			
+			// Salvar/alterar marcação 
+			
+			dia = input.closest(".panel-body").attr('id');
+			//console.log(dia);
+			//$.post()
         });
         
     });

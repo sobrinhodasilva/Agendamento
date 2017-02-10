@@ -23,6 +23,12 @@
         border-right: 1px solid #000;
     }
 </style>
+<script>
+    // Acesso incluir Nome e matricula do funcionario 
+    var nome = 'Roberto Sobrinho da Silva';
+    var matricula = 'C092303';
+</script>
+ 
 </head>
 <body>
     <div class="container">
@@ -38,7 +44,7 @@
             <div class="col-md-6">
                 <div class="panel panel-primary">
                     <div class="panel-heading"> 23/02/2017 </div>
-                    <div class="panel-body">
+                    <div class="panel-body" id="23">
                         
                     </div>
                 </div>
@@ -46,7 +52,7 @@
              <div class="col-md-6">
                  <div class="panel panel-primary">
                   <div class="panel-heading"> 24/02/2017 </div>
-                    <div class="panel-body">
+                    <div class="panel-body" id="24" >
                         
                         
                     </div>
@@ -55,36 +61,6 @@
         </div>
         
     </div>
-<script>
-    $( document ).ready(function() {
-        function horario(h) { 
-            return ('<div class="row"> '+
-                        '  <div class="col-md-2 hora">'+h+'</div> '+
-                        '     <div class="col-md-2"><input type="checkbox" name="'+h+'" ></div>'+
-                        '    <div class="col-md-8 nome"> </div>'+
-                        '</div>'
-                    );
-        }
-        for (i = 8 ; i<=17 ; i++){
-            $('.panel-body').append( horario(i+':00') );
-            $('.panel-body').append( horario(i+':30') );
-        }
-        
-        var nome = 'Roberto Sobrinho da Silva';
-        var matricula = 'C092303';
-        
-        $('input').change(function() {
-			input = $(this);
-			// Ligar ou desligar
-			if ($(this).prop('checked')){ 
-			    input.closest(".row").find('.nome').text(nome + ' - ' + matricula);
-			}
-			else{
-			   input.closest(".row").find('.nome').text('');
-			}
-        });
-        
-    });
-</script>
+<script src="agendamento.js" type="text/javascript"> </script>
 </body>
 </html>
