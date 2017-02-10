@@ -65,9 +65,9 @@
                         '</div>'
                     );
         }
-        for (i = 8 ; i<=18 ; i++){
-            $('.panel-body').append( horario(i) );
-            
+        for (i = 8 ; i<=17 ; i++){
+            $('.panel-body').append( horario(i+':00') );
+            $('.panel-body').append( horario(i+':30') );
         }
         
         var nome = 'Roberto Sobrinho da Silva';
