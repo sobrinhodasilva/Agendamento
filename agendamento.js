@@ -26,19 +26,33 @@ $( document ).ready(function() {
         // Marcar / Desmarcar 
         $('input').change(function() {
 			input = $(this);
-			// Ligar ou desligar
-			if ($(this).prop('checked')){ 
-			    input.closest(".row").find('.nome').text(nome + ' - ' + matricula);
-			}
-			else{
-			   input.closest(".row").find('.nome').text('');
+			
+			//Alaterar apenas a própria marcação. Lembrar da consulta do banco ter upperCase
+			if (input.attr('matricula') == matricula.toUpperCase() || input.attr('matricula') !== ''){
+			
+    			// Ligar ou desligar
+    			if ($(this).prop('checked')){ 
+    			    input.closest(".row").find('.nome').text(nome + ' - ' + matricula);
+    			    //marca a matricula resservada 
+    			    $(this).attr('matricula', matricula);
+    			    
+    			}
+    			else{
+    			   input.closest(".row").find('.nome').text('');
+    			     //desmarca a matricula resservada 
+    			    $(this).attr('matricula', ' ');
+    			}
+    			
+    			// Salvar/alterar marcação 
+    			
+    			dia = input.closest(".panel-body").attr('id');
+    			//console.log(dia);
+    			//$.post()
+			}else{ 
+			    alert('Não é permitido alterar agendamento de aleio.');
+			    
 			}
 			
-			// Salvar/alterar marcação 
-			
-			dia = input.closest(".panel-body").attr('id');
-			//console.log(dia);
-			//$.post()
         });
         
     });
